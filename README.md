@@ -1,6 +1,6 @@
 # SIMPLEOmics
 
-A spatial multi-omics integration framework that unifies paired and diagonal integration through shared representation alignment
+A spatial multi-omics integration framework that unifies paired and diagonal integration through shared representation alignment.
 
 ## Overview
 
