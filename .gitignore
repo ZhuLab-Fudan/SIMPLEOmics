@@ -1,0 +1,41 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+conda-env/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Temporary files
+*.log
+*.tmp
+.DS_Store
+
+# Model checkpoints
+*.pt
+*.pth
+*.ckpt
+
+# Large data files
+*.h5
+*.npy
+*.npz
+*.pkl
+
+# Generated results
+results/
+outputs/
+checkpoints/
+
+# Secrets
+.env
+.env.*
+*.pem
