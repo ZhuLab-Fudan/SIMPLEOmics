@@ -5,8 +5,8 @@ import SIMPLEOmics
 
 # the location of R (used for the mclust clustering)
 import os
-os.environ['R_HOME'] = "/home/lvyz/miniconda3/envs/SIMPLE_env/lib/R"
-os.environ['R_USER'] = "/home/lvyz/miniconda3/envs/SIMPLE_env/lib/python3.8/site-packages/rpy2"
+os.environ['R_HOME'] = "/home/lvyz/miniconda3/envs/SIMPLEOmics_env/lib/R"
+os.environ['R_USER'] = "/home/lvyz/miniconda3/envs/SIMPLEOmics_env/lib/python3.8/site-packages/rpy2"
 
 import matplotlib.pyplot as plt
 plt.rcParams["font.family"] = "Arial"
