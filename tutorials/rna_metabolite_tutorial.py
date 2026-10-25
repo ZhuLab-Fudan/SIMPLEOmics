@@ -56,7 +56,7 @@ adata_SM.obsm['feat'] = SIMPLEOmics.ST_utils.pca(adata_SM, n_comps=60,random_sta
 adata_SM=SIMPLEOmics.Cal_Net(adata_SM)
 
 # training SIMPLEOmics
-adata_ST,adata_SM=SIMPLEOmics.train(adata_ST,adata_SM,num_prototype=n_cluster,n_epochs=1000,alpha_recon=1, beta_dec=0.1, gamma_homo=0.1,lambda_private=1,device=used_device,random_seed=seed)
+adata_ST,adata_SM=SIMPLEOmics.train(adata_ST,adata_SM,num_prototype=n_cluster,n_epochs=800,device=used_device,random_seed=seed)
 
 # clustering
 SIMPLEOmics.ST_utils.mclust_R(adata_ST, num_cluster=n_cluster, used_obsm='SIMPLEOmics',random_seed=seed)
