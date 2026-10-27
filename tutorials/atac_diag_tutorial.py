@@ -92,7 +92,7 @@ sc.pp.log1p(adata_atac)
 adata_atac.obsm['feat'] = SIMPLEOmics.ST_utils.pca(adata_atac,n_comps=60,random_state=seed)
 
 # training SIMPLEOmics
-adata_rna,adata_atac,adata_joint = SIMPLEOmics.train_unpaired(adata_rna,adata_atac,num_prototype=n_cluster,gamma_homo=0.05,device=used_device,random_seed=seed)
+adata_rna,adata_atac = SIMPLEOmics.train_unpaired(adata_rna,adata_atac,num_prototype=n_cluster,gamma_homo=0.05,device=used_device,random_seed=seed)
 
 # clustering
 adata_rna2 = adata_rna.copy()
