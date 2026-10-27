@@ -31,13 +31,13 @@ n_cluster = 10
 file_fold = '/data_SIMPLEOmics/simulation/'
 section_ids = ['adata_RNA','adata_ATAC']
 adata_rna = sc.read_h5ad(file_fold + 'adata_RNA.h5ad')
-adata_adt = sc.read_h5ad(file_fold + 'adata_ATAC.h5ad')
+adata_atac = sc.read_h5ad(file_fold + 'adata_ATAC.h5ad')
 # annotation
 adata_rna.obs['Ground Truth'] = adata_rna.obs['spatial_domain']
-adata_adt.obs['Ground Truth'] = adata_adt.obs['spatial_domain']
+adata_atac.obs['Ground Truth'] = adata_atac.obs['spatial_domain']
 
 adata_rna.var_names_make_unique()
-adata_adt.var_names_make_unique()
+adata_atac.var_names_make_unique()
 
 # RNA
 if isinstance(adata_rna.X, np.ndarray):
@@ -53,14 +53,14 @@ adata_rna=SIMPLEOmics.Cal_Net(adata_rna)
 
 # ATAC
 from muon import atac as ac
-ac.pp.tfidf(adata_adt, scale_factor=1e4)
-sc.pp.normalize_per_cell(adata_adt, counts_per_cell_after=1e4)
-sc.pp.log1p(adata_adt)
-adata_adt.obsm["feat"] = SIMPLEOmics.ST_utils.pca(adata_adt,n_comps=60,random_state=seed,save_model=True,model_key="pca_model")
-adata_adt=SIMPLEOmics.Cal_Net(adata_adt)
+ac.pp.tfidf(adata_atac, scale_factor=1e4)
+sc.pp.normalize_per_cell(adata_atac, counts_per_cell_after=1e4)
+sc.pp.log1p(adata_atac)
+adata_atac.obsm["feat"] = SIMPLEOmics.ST_utils.pca(adata_atac,n_comps=60,random_state=seed,save_model=True,model_key="pca_model")
+adata_atac=SIMPLEOmics.Cal_Net(adata_atac)
 
 # training SIMPLEOmics
-adata_rna,adata_adt=SIMPLEOmics.train(adata_rna,adata_adt,num_prototype=n_cluster,device=used_device,random_seed=seed)
+adata_rna,adata_atac=SIMPLEOmics.train(adata_rna,adata_atac,num_prototype=n_cluster,device=used_device,random_seed=seed)
 
 # clustering
 SIMPLEOmics.ST_utils.mclust_R(adata_rna, num_cluster=n_cluster, used_obsm='SIMPLEOmics',random_seed=seed)
