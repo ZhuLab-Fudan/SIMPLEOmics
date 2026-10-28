@@ -96,7 +96,7 @@ fig, ax_list = plt.subplots(1, 2, figsize=(7, 3))
 sc.pp.neighbors(adata_rna1, use_rep='omic1_embedding')
 sc.tl.umap(adata_rna1)
 sc.pl.umap(adata_rna1, color='mclust', ax=ax_list[0], title='SIMPLEOmic', s=25, show=False)
-sc.pl.embedding(adata_rna1, basis='spatial', color='mclust', ax=ax_list[1], title='SIMPLEOmics', s=20, show=False)
+sc.pl.embedding(adata_rna1, basis='spatial', color='mclust', ax=ax_list[1], title='SIMPLEOmics, ARI='+str(round(ari_1,2)), s=20, show=False)
 plt.tight_layout(w_pad=0.3)
 plt.show()
 
